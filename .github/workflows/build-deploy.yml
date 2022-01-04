@@ -64,4 +64,3 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastapi2:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
-      
