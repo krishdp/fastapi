@@ -3,7 +3,7 @@ name : Build and Deploy Code
 on: [push, pull_request]
 
 jobs:
-  job1:
+  build:
     environment:
       name: testing
     env:
@@ -67,3 +67,12 @@ jobs:
       #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastapi2:latest
       #     cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache
       #     cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
+
+      - name: push changes to production
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      -name: deploying stuff
+        run: echo "going to deploy some stuffs"
